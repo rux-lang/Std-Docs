@@ -1,18 +1,18 @@
-# System
+# Overview
 
 Low-level operating system functionality.
-
-**Module:** `Std::System`
 
 ## Import
 
 ```rux
-import Std::System;
+import Std::Exit;
+import Std::Assert;
+import Std::Fatal;
 ```
 
 ## Description
 
-The `Std::System` module provides access to low-level operating system functionality.
+The System category groups functions that provide access to low-level operating system functionality. `Exit`, `Assert`, and `Fatal` live in the root `Std` module.
 
 Functions within this module interact directly with the underlying platform and are intended for tasks that require operating system integration. Implementations may vary between supported platforms such as Linux and Windows.
 
@@ -20,21 +20,23 @@ Many functions in this module expose behavior that affects the entire process, i
 
 ## Platform Support
 
-The `Std::System` module provides platform-specific implementations where necessary.
+The System category provides platform-specific implementations where necessary.
 
 | Platform | Supported |
 | -------- | --------- |
 | Linux    |  yes      |
 | Windows  |  yes      |
 | macOS    | Planned   |
-| BSD      | Planned   |
-| Illumos  | Planned   |
+| BSD      |  yes      |
+| Illumos  |  yes      |
 
 ## Functions
 
-| Function          | Description                                                |
-| ----------------- | ---------------------------------------------------------- |
-| [`Exit`](exit.md) | Terminates the current process with a specified exit code. |
+| Function              | Description                                                   |
+| --------------------- | ------------------------------------------------------------- |
+| [`Assert`](assert.md) | Terminates the program if a condition evaluates to `false`.   |
+| [`Exit`](exit.md)     | Terminates the current process with a specified exit code.    |
+| [`Fatal`](fatal.md)   | Prints an error message and terminates the process.           |
 
 ## Notes
 
