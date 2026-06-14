@@ -2,86 +2,194 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://rux-lang.github.io/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-14</lastmod>
     </url>
     <url>
          <loc>https://rux-lang.github.io/std/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-14</lastmod>
+    </url>
+    <url>
+         <loc>https://rux-lang.github.io/std/Collections/</loc>
+         <lastmod>2026-06-14</lastmod>
+    </url>
+    <url>
+         <loc>https://rux-lang.github.io/std/Collections/HashMap/</loc>
+         <lastmod>2026-06-14</lastmod>
+    </url>
+    <url>
+         <loc>https://rux-lang.github.io/std/Collections/HashSet/</loc>
+         <lastmod>2026-06-14</lastmod>
+    </url>
+    <url>
+         <loc>https://rux-lang.github.io/std/Encoding/</loc>
+         <lastmod>2026-06-14</lastmod>
+    </url>
+    <url>
+         <loc>https://rux-lang.github.io/std/Encoding/Base64/</loc>
+         <lastmod>2026-06-14</lastmod>
+    </url>
+    <url>
+         <loc>https://rux-lang.github.io/std/Encoding/Hex/</loc>
+         <lastmod>2026-06-14</lastmod>
+    </url>
+    <url>
+         <loc>https://rux-lang.github.io/std/Hash/</loc>
+         <lastmod>2026-06-14</lastmod>
+    </url>
+    <url>
+         <loc>https://rux-lang.github.io/std/Hash/Blake2/</loc>
+         <lastmod>2026-06-14</lastmod>
+    </url>
+    <url>
+         <loc>https://rux-lang.github.io/std/Hash/Blake3/</loc>
+         <lastmod>2026-06-14</lastmod>
+    </url>
+    <url>
+         <loc>https://rux-lang.github.io/std/Hash/Md5/</loc>
+         <lastmod>2026-06-14</lastmod>
+    </url>
+    <url>
+         <loc>https://rux-lang.github.io/std/Hash/Sha0/</loc>
+         <lastmod>2026-06-14</lastmod>
+    </url>
+    <url>
+         <loc>https://rux-lang.github.io/std/Hash/Sha1/</loc>
+         <lastmod>2026-06-14</lastmod>
+    </url>
+    <url>
+         <loc>https://rux-lang.github.io/std/Hash/Sha256/</loc>
+         <lastmod>2026-06-14</lastmod>
+    </url>
+    <url>
+         <loc>https://rux-lang.github.io/std/Hash/Sha512/</loc>
+         <lastmod>2026-06-14</lastmod>
+    </url>
+    <url>
+         <loc>https://rux-lang.github.io/std/Sort/</loc>
+         <lastmod>2026-06-14</lastmod>
+    </url>
+    <url>
+         <loc>https://rux-lang.github.io/std/Sort/Crumsort/</loc>
+         <lastmod>2026-06-14</lastmod>
+    </url>
+    <url>
+         <loc>https://rux-lang.github.io/std/Sort/Piposort/</loc>
+         <lastmod>2026-06-14</lastmod>
+    </url>
+    <url>
+         <loc>https://rux-lang.github.io/std/Sort/Quadsort/</loc>
+         <lastmod>2026-06-14</lastmod>
+    </url>
+    <url>
+         <loc>https://rux-lang.github.io/std/Sort/Sort/</loc>
+         <lastmod>2026-06-14</lastmod>
+    </url>
+    <url>
+         <loc>https://rux-lang.github.io/std/UUID/</loc>
+         <lastmod>2026-06-14</lastmod>
+    </url>
+    <url>
+         <loc>https://rux-lang.github.io/std/UUID/UUID/</loc>
+         <lastmod>2026-06-14</lastmod>
+    </url>
+    <url>
+         <loc>https://rux-lang.github.io/std/io/</loc>
+         <lastmod>2026-06-14</lastmod>
     </url>
     <url>
          <loc>https://rux-lang.github.io/std/io/input/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-14</lastmod>
     </url>
     <url>
          <loc>https://rux-lang.github.io/std/io/print/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-14</lastmod>
+    </url>
+    <url>
+         <loc>https://rux-lang.github.io/std/memory/allocation/</loc>
+         <lastmod>2026-06-14</lastmod>
     </url>
     <url>
          <loc>https://rux-lang.github.io/std/memory/memory/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-14</lastmod>
+    </url>
+    <url>
+         <loc>https://rux-lang.github.io/std/memory/operations/</loc>
+         <lastmod>2026-06-14</lastmod>
     </url>
     <url>
          <loc>https://rux-lang.github.io/std/system/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-14</lastmod>
     </url>
     <url>
          <loc>https://rux-lang.github.io/std/system/assert/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-14</lastmod>
     </url>
     <url>
          <loc>https://rux-lang.github.io/std/system/exit/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-14</lastmod>
     </url>
     <url>
          <loc>https://rux-lang.github.io/std/system/fatal/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-14</lastmod>
+    </url>
+    <url>
+         <loc>https://rux-lang.github.io/std/text/</loc>
+         <lastmod>2026-06-14</lastmod>
     </url>
     <url>
          <loc>https://rux-lang.github.io/std/text/display/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-14</lastmod>
     </url>
     <url>
          <loc>https://rux-lang.github.io/std/text/format/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-14</lastmod>
     </url>
     <url>
          <loc>https://rux-lang.github.io/std/text/string/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-14</lastmod>
     </url>
     <url>
          <loc>https://rux-lang.github.io/std/text/stringbuilder/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-14</lastmod>
+    </url>
+    <url>
+         <loc>https://rux-lang.github.io/std/types/</loc>
+         <lastmod>2026-06-14</lastmod>
     </url>
     <url>
          <loc>https://rux-lang.github.io/std/types/bool/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-14</lastmod>
     </url>
     <url>
          <loc>https://rux-lang.github.io/std/types/char/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-14</lastmod>
     </url>
     <url>
          <loc>https://rux-lang.github.io/std/types/float/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-14</lastmod>
     </url>
     <url>
          <loc>https://rux-lang.github.io/std/types/int/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-14</lastmod>
     </url>
     <url>
          <loc>https://rux-lang.github.io/std/types/uint/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-14</lastmod>
+    </url>
+    <url>
+         <loc>https://rux-lang.github.io/std/utilities/</loc>
+         <lastmod>2026-06-14</lastmod>
     </url>
     <url>
          <loc>https://rux-lang.github.io/std/utilities/math/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-14</lastmod>
     </url>
     <url>
          <loc>https://rux-lang.github.io/std/utilities/random/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-14</lastmod>
     </url>
     <url>
          <loc>https://rux-lang.github.io/std/utilities/time/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-14</lastmod>
     </url>
 </urlset>
