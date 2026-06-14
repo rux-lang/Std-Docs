@@ -1,4 +1,4 @@
-# ReadLine
+# Input
 
 Reads a line of text from standard input.
 
@@ -7,7 +7,18 @@ Reads a line of text from standard input.
 ## Summary
 
 ```rux
-ReadLine() -> String
+import Std::Io::{ ReadLine, PrintLine };
+import Std::Display;
+
+func Main() -> int {
+    PrintLine("Enter your name:");
+
+    let name = ReadLine();
+
+    PrintLine("Hello, {}!", name);
+
+    return 0;
+}
 ```
 
 ## Description
@@ -20,59 +31,7 @@ If an error occurs or end-of-file (EOF) is reached, an empty string is returned.
 
 ---
 
-# Function
-
-## ReadLine
-
-```rux
-ReadLine() -> String
-```
-
-Reads a line from standard input.
-
-### Return Value
-
-Returns a `String` containing the characters read from standard input.
-
-Returns an empty string when:
-
-- End-of-file (EOF) is reached.
-- An input error occurs.
-- The input line contains only a line terminator.
-
-### Example
-
-```rux
-import Std::Io;
-
-func Main() {
-
-    Print("Enter your name: ");
-
-    let name = ReadLine();
-
-    PrintLine(
-        "Hello, {}!",
-        name
-    );
-}
-```
-
-Input:
-
-```text
-Alex
-```
-
-Output:
-
-```text
-Enter your name: Hello, Alex!
-```
-
----
-
-# Line Terminators
+## Line Terminators
 
 `ReadLine()` automatically removes trailing line terminators.
 
@@ -99,7 +58,7 @@ Hello World
 
 ---
 
-# Empty Input
+## Empty Input
 
 If the user presses Enter without typing any characters:
 
@@ -115,7 +74,7 @@ Returned value:
 String::New()
 ```
 
-### Example
+#### Example
 
 ```rux
 let text = ReadLine();
@@ -127,13 +86,13 @@ if text.IsEmpty() {
 
 ---
 
-# Memory Management
+## Memory Management
 
 The returned string owns its character buffer.
 
 Memory is dynamically allocated before the string is returned.
 
-### Example
+#### Example
 
 ```rux
 let text = ReadLine();
@@ -143,7 +102,7 @@ The returned string remains valid after the function returns.
 
 ---
 
-# Notes
+## Notes
 
 - Input is read as UTF-8 text.
 - Line terminators are removed automatically.
@@ -152,48 +111,18 @@ The returned string remains valid after the function returns.
 
 ---
 
-# Platform Notes
+## Platform Notes
 
-## Linux
+### Linux / BSD / Illumos
 
-- Input is read from standard input using operating system read calls.
-- UTF-8 input is returned directly.
+- Input is read from standard input using the `read` syscall (4096-byte buffer).
+- Linux: `SYS_READ = 0` (negative errno).
+- BSD / Illumos: `SYS_READ = 3` (positive errno).
+- Trailing `\n` and `\r` are stripped from the returned string.
 
-## Windows
+### Windows
 
 - Input is read from the standard input handle using the Windows file API.
 - UTF-8 input is returned directly.
 
 ---
-
-# Current Limitations
-
-- Maximum input length is currently 4096 bytes.
-- Input longer than 4096 bytes is truncated.
-- BSD support is not yet implemented.
-- Illumos support is not yet implemented.
-- macOS support is not yet implemented.
-
-These platforms currently contain placeholder implementations.
-
----
-
-# Example: Simple Prompt
-
-```rux
-import Std::Io;
-
-func Main() {
-
-    Print("Username: ");
-    let username = ReadLine();
-
-    Print("Password: ");
-    let password = ReadLine();
-
-    PrintLine(
-        "Welcome, {}!",
-        username
-    );
-}
-```

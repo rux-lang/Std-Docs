@@ -31,7 +31,7 @@ Returns a newly allocated `String` containing the formatted result.
 
 ---
 
-# Placeholders
+## Placeholders
 
 The following placeholder is supported:
 
@@ -41,7 +41,7 @@ The following placeholder is supported:
 
 Each placeholder consumes one argument.
 
-### Example
+#### Example
 
 ```rux
 let text = Format("Hello, {}!", name);
@@ -55,9 +55,9 @@ Hello, Alex!
 
 ---
 
-# Examples
+## Examples
 
-## Single Argument
+### Single Argument
 
 ```rux
 let name = String::From("Alex");
@@ -73,7 +73,7 @@ Hello, Alex!
 
 ---
 
-## Multiple Arguments
+### Multiple Arguments
 
 ```rux
 let text = Format(
@@ -91,7 +91,7 @@ Alex scored 42 points
 
 ---
 
-## No Placeholders
+### No Placeholders
 
 ```rux
 let text = Format("Hello World");
@@ -105,7 +105,7 @@ Hello World
 
 ---
 
-## Using Display
+### Using Display
 
 Any type implementing `Display` can be formatted.
 
@@ -135,7 +135,7 @@ Alex
 
 ---
 
-# Notes
+## Notes
 
 - Arguments are formatted by calling `ToString()`.
 - Placeholders are processed from left to right.
@@ -145,32 +145,7 @@ Alex
 
 ---
 
-# Current Limitations
-
-The current implementation:
-
-- Supports only the `{}` placeholder.
-- Does not support format specifiers such as width, alignment, precision, or numeric formatting.
-- Uses an internal fixed-size buffer of 1024 bytes.
-- Output exceeding the buffer size is truncated.
-
-Example:
-
-```rux
-Format("Hello {}", name);
-```
-
-Supported.
-
-```rux
-Format("{:08}", value);
-```
-
-Not currently supported.
-
----
-
-# See Also
+## See Also
 
 - [Display](display.md)
 - [String](string.md)

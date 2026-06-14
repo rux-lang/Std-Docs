@@ -39,23 +39,23 @@ All boolean types implement the `Display` interface and can be used with formatt
 
 ---
 
-# String Conversion
+## String Conversion
 
-## ToString
+### ToString
 
-### bool8
+#### bool8
 
 ```rux
 ToString(value: bool8) -> String
 ```
 
-### bool16
+#### bool16
 
 ```rux
 ToString(value: bool16) -> String
 ```
 
-### bool32
+#### bool32
 
 ```rux
 ToString(value: bool32) -> String
@@ -63,14 +63,14 @@ ToString(value: bool32) -> String
 
 Converts a boolean value into its string representation.
 
-### Return Values
+#### Return Values
 
 | Boolean Value | Result    |
 | ------------- | --------- |
 | `true`        | `"true"`  |
 | `false`       | `"false"` |
 
-### Example
+#### Example
 
 ```rux
 let text = ToString(true);
@@ -84,7 +84,7 @@ true
 
 ---
 
-# Display Implementation
+## Display Implementation
 
 All boolean types implement the `Display` interface.
 
@@ -96,7 +96,7 @@ extend bool32 : Display
 
 This allows boolean values to be used with APIs accepting `Display`.
 
-### Example
+#### Example
 
 ```rux
 PrintLine(true);
@@ -110,11 +110,11 @@ true
 
 ---
 
-# Formatting
+## Formatting
 
 Boolean values can be used with `Format()`.
 
-### Example
+#### Example
 
 ```rux
 let text = Format(
@@ -131,57 +131,7 @@ Enabled: true
 
 ---
 
-# Examples
-
-## bool8
-
-```rux
-let value: bool8 = true;
-
-PrintLine(value);
-```
-
-Output:
-
-```text
-true
-```
-
----
-
-## bool16
-
-```rux
-let value: bool16 = false;
-
-PrintLine(value);
-```
-
-Output:
-
-```text
-false
-```
-
----
-
-## bool32
-
-```rux
-let value: bool32 = true;
-
-PrintLine(value);
-```
-
-Output:
-
-```text
-true
-```
-
----
-
-# Notes
+## Notes
 
 * All boolean types behave identically.
 * The only difference between `bool8`, `bool16`, and `bool32` is storage size.

@@ -2,15 +2,15 @@
 
 Terminates the current process with the specified exit code.
 
-**Module:** `Std::System`
+**Module:** `Std`
 
-## Summary
+## Import
 
 ```rux
-import Std::System;
+import Std::Exit;
 ```
 
-## Synopsis
+## Summary
 
 ```rux
 Exit(code: uint32)
@@ -31,7 +31,7 @@ Execution does not continue after a call to `Exit`.
 ## Example
 
 ```rux
-import Std::System;
+import Std::Exit;
 
 func Main() {
     Exit(0);

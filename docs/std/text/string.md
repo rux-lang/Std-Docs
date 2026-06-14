@@ -16,35 +16,35 @@ String::New()
 String::From(str: *const char8, length: uint)
 String::From(slice: char8[])
 
-Clone() -> String
+func Clone(self) -> String
 
-operator +(other: String) -> String
-operator +(slice: char8[]) -> String
+func operator +(self, other: String) -> String
+func operator +(self, slice: char8[]) -> String
 
-ToString() -> String
+func ToString(self) -> String
 
-Data() -> *char8
-Length() -> uint
-IsEmpty() -> bool8
+func Data(self) -> *char8
+func Length(self) -> uint
+func IsEmpty(self) -> bool8
 
-ToUpper() -> String
-ToLower() -> String
-Capitalize() -> String
-TitleCase() -> String
-Trim() -> String
+func ToUpper(self) -> String
+func ToLower(self) -> String
+func Capitalize(self) -> String
+func TitleCase(self) -> String
+func Trim(self) -> String
 
-StartsWith(prefix: String) -> bool
-EndsWith(suffix: String) -> bool
+func StartsWith(self, prefix: String) -> bool
+func EndsWith(self, suffix: String) -> bool
 
-Split(delimiter: char8) -> StringArray
+func Split(self, delimiter: char8) -> StringArray
 
-Repeat(count: uint) -> String
+func Repeat(self, count: uint) -> String
 
-ToUpperInPlace()
-ToLowerInPlace()
-CapitalizeInPlace()
-TrimInPlace()
-TitleCaseInPlace()
+func ToUpperInPlace(self)
+func ToLowerInPlace(self)
+func CapitalizeInPlace(self)
+func TrimInPlace(self)
+func TitleCaseInPlace(self)
 ```
 
 ## Description
@@ -87,9 +87,9 @@ struct StringArray {
 
 ---
 
-# Construction
+## Construction
 
-## New
+### New
 
 ```rux
 String::New() -> String
@@ -97,7 +97,7 @@ String::New() -> String
 
 Creates an empty string.
 
-### Example
+#### Example
 
 ```rux
 let str = String::New();
@@ -105,9 +105,9 @@ let str = String::New();
 
 ---
 
-## From
+### From
 
-### From Pointer
+#### From Pointer
 
 ```rux
 String::From(str: *const char8, length: uint) -> String
@@ -115,13 +115,13 @@ String::From(str: *const char8, length: uint) -> String
 
 Creates a string by copying raw character data.
 
-### Example
+#### Example
 
 ```rux
 let str = String::From(ptr, length);
 ```
 
-### From Slice
+#### From Slice
 
 ```rux
 String::From(slice: char8[]) -> String
@@ -129,7 +129,7 @@ String::From(slice: char8[]) -> String
 
 Creates a string by copying a character slice.
 
-### Example
+#### Example
 
 ```rux
 let str = String::From("Hello");
@@ -137,7 +137,7 @@ let str = String::From("Hello");
 
 ---
 
-## Clone
+### Clone
 
 ```rux
 Clone() -> String
@@ -145,7 +145,7 @@ Clone() -> String
 
 Returns a copy of the string.
 
-### Example
+#### Example
 
 ```rux
 let copy = original.Clone();
@@ -153,25 +153,25 @@ let copy = original.Clone();
 
 ---
 
-# Operators
+## Operators
 
-## Concatenation
+### Concatenation
 
-### String + String
+#### String + String
 
 ```rux
 stringA + stringB
 ```
 
-Returns a new string containing both strings concatenated together.
+Returns a new string containing both strings concatenated.
 
-### Example
+#### Example
 
 ```rux
 let result = hello + world;
 ```
 
-### String + char8[ ]
+#### String + char8[ ]
 
 ```rux
 string + slice
@@ -179,7 +179,7 @@ string + slice
 
 Returns a new string containing the string followed by the character slice.
 
-### Example
+#### Example
 
 ```rux
 let result = str + " World";
@@ -187,9 +187,9 @@ let result = str + " World";
 
 ---
 
-# Accessors
+## Accessors
 
-## Data
+### Data
 
 ```rux
 Data() -> *char8
@@ -199,7 +199,7 @@ Returns a pointer to the underlying character buffer.
 
 ---
 
-## Length
+### Length
 
 ```rux
 Length() -> uint
@@ -209,7 +209,7 @@ Returns the number of bytes stored in the string.
 
 ---
 
-## IsEmpty
+### IsEmpty
 
 ```rux
 IsEmpty() -> bool8
@@ -217,7 +217,7 @@ IsEmpty() -> bool8
 
 Returns `true` if the string length is zero.
 
-### Example
+#### Example
 
 ```rux
 if str.IsEmpty() {
@@ -227,9 +227,9 @@ if str.IsEmpty() {
 
 ---
 
-# Case Conversion
+## Case Conversion
 
-## ToUpper
+### ToUpper
 
 ```rux
 ToUpper() -> String
@@ -237,7 +237,7 @@ ToUpper() -> String
 
 Returns a new uppercase string.
 
-### Example
+#### Example
 
 ```rux
 let upper = str.ToUpper();
@@ -245,7 +245,7 @@ let upper = str.ToUpper();
 
 ---
 
-## ToLower
+### ToLower
 
 ```rux
 ToLower() -> String
@@ -255,7 +255,7 @@ Returns a new lowercase string.
 
 ---
 
-## Capitalize
+### Capitalize
 
 ```rux
 Capitalize() -> String
@@ -263,7 +263,7 @@ Capitalize() -> String
 
 Returns a new string with the first character uppercase and the remaining characters lowercase.
 
-### Example
+#### Example
 
 ```rux
 let result = str.Capitalize();
@@ -271,7 +271,7 @@ let result = str.Capitalize();
 
 ---
 
-## TitleCase
+### TitleCase
 
 ```rux
 TitleCase() -> String
@@ -279,7 +279,7 @@ TitleCase() -> String
 
 Returns a new string with the first letter of each word capitalized.
 
-### Example
+#### Example
 
 ```rux
 let result = str.TitleCase();
@@ -287,9 +287,9 @@ let result = str.TitleCase();
 
 ---
 
-# Whitespace
+## Whitespace
 
-## Trim
+### Trim
 
 ```rux
 Trim() -> String
@@ -304,7 +304,7 @@ Whitespace characters recognized:
 - Newline (`'\n'`)
 - Carriage return (`'\r'`)
 
-### Example
+#### Example
 
 ```rux
 let result = str.Trim();
@@ -312,9 +312,9 @@ let result = str.Trim();
 
 ---
 
-# Search
+## Search
 
-## StartsWith
+### StartsWith
 
 ```rux
 StartsWith(prefix: String) -> bool
@@ -322,7 +322,7 @@ StartsWith(prefix: String) -> bool
 
 Returns `true` if the string begins with the specified prefix.
 
-### Example
+#### Example
 
 ```rux
 if str.StartsWith(String::From("Hello")) {
@@ -332,7 +332,7 @@ if str.StartsWith(String::From("Hello")) {
 
 ---
 
-## EndsWith
+### EndsWith
 
 ```rux
 EndsWith(suffix: String) -> bool
@@ -340,7 +340,7 @@ EndsWith(suffix: String) -> bool
 
 Returns `true` if the string ends with the specified suffix.
 
-### Example
+#### Example
 
 ```rux
 if str.EndsWith(String::From(".txt")) {
@@ -349,9 +349,9 @@ if str.EndsWith(String::From(".txt")) {
 
 ---
 
-# Splitting
+## Splitting
 
-## Split
+### Split
 
 ```rux
 Split(delimiter: char8) -> StringArray
@@ -359,13 +359,13 @@ Split(delimiter: char8) -> StringArray
 
 Splits the string into multiple substrings separated by the specified delimiter.
 
-### Example
+#### Example
 
 ```rux
 let tokens = str.Split(',');
 ```
 
-### Result
+#### Result
 
 ```text
 "a,b,c"
@@ -375,8 +375,7 @@ let tokens = str.Split(',');
 ["a", "b", "c"]
 ```
 
-
-### Notes
+#### Notes
 
 - The returned strings reference the original string's data.
 - No character data is copied.
@@ -384,9 +383,9 @@ let tokens = str.Split(',');
 
 ---
 
-# Repetition
+## Repetition
 
-## Repeat
+### Repeat
 
 ```rux
 Repeat(count: uint) -> String
@@ -396,7 +395,7 @@ Returns a new string containing the original string repeated `count` times.
 
 Internally, `Repeat` uses `StringBuilder` to efficiently construct the resulting string, reducing unnecessary memory allocations and copies.
 
-### Example
+#### Example
 
 ```rux
 let result = String::From("Hi").Repeat(3);
@@ -408,19 +407,13 @@ Result:
 HiHiHi
 ```
 
-Result:
-
-```text
-HiHiHi
-```
-
 ---
 
-# In-Place Operations
+## In-Place Operations
 
 These functions modify the existing string buffer directly.
 
-## ToUpperInPlace
+### ToUpperInPlace
 
 ```rux
 ToUpperInPlace()
@@ -430,7 +423,7 @@ Converts all characters to uppercase.
 
 ---
 
-## ToLowerInPlace
+### ToLowerInPlace
 
 ```rux
 ToLowerInPlace()
@@ -440,7 +433,7 @@ Converts all characters to lowercase.
 
 ---
 
-## CapitalizeInPlace
+### CapitalizeInPlace
 
 ```rux
 CapitalizeInPlace()
@@ -450,7 +443,7 @@ Capitalizes the first character and lowercases the remaining characters.
 
 ---
 
-## TrimInPlace
+### TrimInPlace
 
 ```rux
 TrimInPlace()
@@ -460,7 +453,7 @@ Removes leading and trailing whitespace from the existing buffer.
 
 ---
 
-## TitleCaseInPlace
+### TitleCaseInPlace
 
 ```rux
 TitleCaseInPlace()
@@ -468,7 +461,7 @@ TitleCaseInPlace()
 
 Capitalizes the first letter of each word directly in the existing buffer.
 
-## ToString
+### ToString
 
 ```rux
 ToString() -> String
@@ -480,7 +473,7 @@ This method exists to satisfy the `Display` interface.
 
 ---
 
-# Display Implementation
+## Display Implementation
 
 `String` implements the `Display` interface.
 
@@ -493,12 +486,15 @@ extend String : Display {
 ```
 
 Calling `ToString` on a `String` returns the string itself.
-More info about the `Display` in [Display.md](display.md)
 
-## Example
+### Example
 
 ```rux
 let str = String::From("Hello");
 
 let text = str.ToString();
 ```
+
+## See Also
+
+- [Display](display.md)

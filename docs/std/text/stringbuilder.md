@@ -47,9 +47,9 @@ This makes it ideal for:
 
 ---
 
-# Structure
+## Structure
 
-## StringBuilder
+### StringBuilder
 
 ```rux
 struct StringBuilder {
@@ -67,9 +67,9 @@ struct StringBuilder {
 
 ---
 
-# Construction
+## Construction
 
-## New
+### New
 
 ```rux
 StringBuilder::New() -> StringBuilder
@@ -77,7 +77,7 @@ StringBuilder::New() -> StringBuilder
 
 Creates an empty string builder.
 
-### Example
+#### Example
 
 ```rux
 let builder = StringBuilder::New();
@@ -85,7 +85,7 @@ let builder = StringBuilder::New();
 
 ---
 
-## WithCapacity
+### WithCapacity
 
 ```rux
 StringBuilder::WithCapacity(capacity: uint) -> StringBuilder
@@ -95,7 +95,7 @@ Creates a string builder with a preallocated buffer.
 
 Preallocating capacity can reduce memory reallocations when the final size is known.
 
-### Example
+#### Example
 
 ```rux
 let builder = StringBuilder::WithCapacity(1024);
@@ -103,9 +103,9 @@ let builder = StringBuilder::WithCapacity(1024);
 
 ---
 
-# Capacity Management
+## Capacity Management
 
-## Capacity
+### Capacity
 
 ```rux
 Capacity() -> uint
@@ -113,7 +113,7 @@ Capacity() -> uint
 
 Returns the current buffer capacity.
 
-### Example
+#### Example
 
 ```rux
 Print(Format("{}", builder.Capacity()));
@@ -121,7 +121,7 @@ Print(Format("{}", builder.Capacity()));
 
 ---
 
-## Reserve
+### Reserve
 
 ```rux
 Reserve(additional: uint)
@@ -131,7 +131,7 @@ Ensures sufficient capacity exists for additional bytes.
 
 The buffer grows automatically when required.
 
-### Example
+#### Example
 
 ```rux
 builder.Reserve(512);
@@ -139,7 +139,7 @@ builder.Reserve(512);
 
 ---
 
-## Shrink
+### Shrink
 
 ```rux
 Shrink()
@@ -149,7 +149,7 @@ Reduces the internal buffer size to exactly match the current length.
 
 This can be used to release unused memory.
 
-### Example
+#### Example
 
 ```rux
 builder.Shrink();
@@ -157,9 +157,9 @@ builder.Shrink();
 
 ---
 
-# Appending
+## Appending
 
-## Append Character
+### Append Character
 
 ```rux
 Append(c: char8)
@@ -167,7 +167,7 @@ Append(c: char8)
 
 Appends a single character.
 
-### Example
+#### Example
 
 ```rux
 builder.Append('A');
@@ -175,7 +175,7 @@ builder.Append('A');
 
 ---
 
-## Append Slice
+### Append Slice
 
 ```rux
 Append(str: char8[])
@@ -183,7 +183,7 @@ Append(str: char8[])
 
 Appends a character slice.
 
-### Example
+#### Example
 
 ```rux
 builder.Append("Hello");
@@ -191,7 +191,7 @@ builder.Append("Hello");
 
 ---
 
-## Append String
+### Append String
 
 ```rux
 Append(str: String)
@@ -199,7 +199,7 @@ Append(str: String)
 
 Appends a `String`.
 
-### Example
+#### Example
 
 ```rux
 let name = String::From("Alex");
@@ -209,9 +209,9 @@ builder.Append(name);
 
 ---
 
-# Conversion
+## Conversion
 
-## ToString
+### ToString
 
 ```rux
 ToString() -> String
@@ -221,13 +221,13 @@ Creates a new `String` containing a copy of the builder contents.
 
 The builder remains unchanged.
 
-### Example
+#### Example
 
 ```rux
 let text = builder.ToString();
 ```
 
-### Notes
+#### Notes
 
 - Allocates new memory.
 - Copies all stored characters.
@@ -235,7 +235,7 @@ let text = builder.ToString();
 
 ---
 
-## IntoString
+### IntoString
 
 ```rux
 IntoString() -> String
@@ -245,13 +245,13 @@ Transfers ownership of the internal buffer into a `String`.
 
 After the conversion, the builder becomes empty.
 
-### Example
+#### Example
 
 ```rux
 let text = builder.IntoString();
 ```
 
-### Notes
+#### Notes
 
 - Does not copy the character data.
 - More efficient than `ToString()`.
@@ -259,9 +259,9 @@ let text = builder.IntoString();
 
 ---
 
-# Information
+## Information
 
-## Length
+### Length
 
 ```rux
 Length() -> uint
@@ -269,7 +269,7 @@ Length() -> uint
 
 Returns the current number of bytes stored.
 
-### Example
+#### Example
 
 ```rux
 let len = builder.Length();
@@ -277,7 +277,7 @@ let len = builder.Length();
 
 ---
 
-## IsEmpty
+### IsEmpty
 
 ```rux
 IsEmpty() -> bool8
@@ -285,7 +285,7 @@ IsEmpty() -> bool8
 
 Returns `true` if the builder contains no characters.
 
-### Example
+#### Example
 
 ```rux
 if builder.IsEmpty() {
@@ -295,9 +295,9 @@ if builder.IsEmpty() {
 
 ---
 
-# Modification
+## Modification
 
-## Clear
+### Clear
 
 ```rux
 Clear()
@@ -307,13 +307,13 @@ Removes all contents from the builder.
 
 The allocated buffer remains available for future use.
 
-### Example
+#### Example
 
 ```rux
 builder.Clear();
 ```
 
-### Notes
+#### Notes
 
 - Does not free memory.
 - Sets the length to zero.
@@ -321,7 +321,7 @@ builder.Clear();
 
 ---
 
-# Example
+## Example
 
 ```rux
 import Std::StringBuilder;
@@ -348,7 +348,7 @@ Hello World
 
 ---
 
-# Capacity Growth
+## Capacity Growth
 
 `StringBuilder` automatically grows its internal buffer when additional space is required.
 
@@ -364,7 +364,7 @@ This strategy provides efficient amortized append performance.
 
 ---
 
-# Choosing Between ToString and IntoString
+## Choosing Between ToString and IntoString
 
 |     Method     | Copies Data | Builder Remains Usable |
 |----------------|-------------|------------------------|

@@ -33,11 +33,11 @@ All integer types implement the `Display` interface.
 
 ---
 
-# String Conversion
+## String Conversion
 
-## ToString
+### ToString
 
-### int8
+#### int8
 
 ```rux
 ToString(value: int8) -> String
@@ -49,7 +49,7 @@ Internally, the value is converted to `int64` and formatted using the `int64` im
 
 ---
 
-### int16
+#### int16
 
 ```rux
 ToString(value: int16) -> String
@@ -61,7 +61,7 @@ Internally, the value is converted to `int64` and formatted using the `int64` im
 
 ---
 
-### int32
+#### int32
 
 ```rux
 ToString(value: int32) -> String
@@ -73,7 +73,7 @@ Internally, the value is converted to `int64` and formatted using the `int64` im
 
 ---
 
-### int64
+#### int64
 
 ```rux
 ToString(value: int64) -> String
@@ -81,7 +81,7 @@ ToString(value: int64) -> String
 
 Converts an `int64` value into its decimal string representation.
 
-### Examples
+#### Examples
 
 ```rux
 ToString(42);
@@ -115,7 +115,7 @@ Result:
 
 ---
 
-# Display Implementation
+## Display Implementation
 
 All signed integer types implement the `Display` interface.
 
@@ -128,7 +128,7 @@ extend int64 : Display
 
 This allows integer values to be used with formatting and output functions.
 
-### Example
+#### Example
 
 ```rux
 PrintLine(42);
@@ -142,11 +142,11 @@ Output:
 
 ---
 
-# Formatting
+## Formatting
 
 Integer values can be used with `Format()`.
 
-### Example
+#### Example
 
 ```rux
 let score: int32 = 9001;
@@ -165,73 +165,7 @@ Score: 9001
 
 ---
 
-# Examples
-
-## int8
-
-```rux
-let value: int8 = -10;
-
-PrintLine(value);
-```
-
-Output:
-
-```text
--10
-```
-
----
-
-## int16
-
-```rux
-let value: int16 = 2048;
-
-PrintLine(value);
-```
-
-Output:
-
-```text
-2048
-```
-
----
-
-## int32
-
-```rux
-let value: int32 = -123456;
-
-PrintLine(value);
-```
-
-Output:
-
-```text
--123456
-```
-
----
-
-## int64
-
-```rux
-let value: int64 = 9223372036854775807;
-
-PrintLine(value);
-```
-
-Output:
-
-```text
-9223372036854775807
-```
-
----
-
-# Notes
+## Notes
 
 * All conversions produce decimal output.
 * Negative numbers are prefixed with `-`.
@@ -240,11 +174,3 @@ Output:
 * A new string is allocated for each conversion.
 
 ---
-
-# Current Limitations
-
-* Only decimal formatting is currently supported.
-* Hexadecimal, binary, and octal formatting are not currently available.
-* Width, padding, alignment, and sign formatting options are not currently supported.
-
-Future versions may add additional integer formatting capabilities.

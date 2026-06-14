@@ -1,4 +1,4 @@
-# IO
+# Print
 
 Console output utilities.
 
@@ -7,8 +7,20 @@ Console output utilities.
 ## Summary
 
 ```rux
-Print(...)
-PrintLine(...)
+import Std::Io::{ Print, PrintLine };
+import Std::Format;
+
+func Main() -> int {
+    let score: int32 = 9001;
+    let name  = String::From("Alex");
+
+    PrintLine("Player: {}", name);
+    PrintLine("Score:  {}", score);
+    Print("Status: ");
+    PrintLine("active");
+
+    return 0;
+}
 ```
 
 ## Description
@@ -27,19 +39,21 @@ The module supports:
 
 ---
 
-# Print
+## Print
 
 Writes a value to standard output without appending a newline.
 
-## Overloads
+### Overloads
 
-### Primitive Types
+#### Primitive Types
 
 ```rux
 Print(value: int8)
 Print(value: int16)
 Print(value: int32)
 Print(value: int64)
+
+Print(value: int)
 
 Print(value: uint8)
 Print(value: uint16)
@@ -60,7 +74,7 @@ Print(value: char32)
 Print(value: char)
 ```
 
-### Strings
+#### Strings
 
 ```rux
 Print(string: *const char8, length: uint)
@@ -72,7 +86,7 @@ Print(string: char16[])
 Print(string: String)
 ```
 
-### Formatted Output
+#### Formatted Output
 
 ```rux
 Print(
@@ -83,7 +97,7 @@ Print(
 
 Formats the arguments using `Format()` and writes the result to standard output.
 
-### Example
+#### Example
 
 ```rux
 Print(
@@ -100,13 +114,13 @@ Hello, Alex!
 
 ---
 
-# PrintLine
+## PrintLine
 
 Writes a value to standard output and appends a newline.
 
-## Overloads
+### Overloads
 
-### Newline Only
+#### Newline Only
 
 ```rux
 PrintLine()
@@ -114,13 +128,15 @@ PrintLine()
 
 Writes a line terminator.
 
-### Primitive Types
+#### Primitive Types
 
 ```rux
 PrintLine(value: int8)
 PrintLine(value: int16)
 PrintLine(value: int32)
 PrintLine(value: int64)
+
+PrintLine(value: int)
 
 PrintLine(value: uint8)
 PrintLine(value: uint16)
@@ -141,7 +157,7 @@ PrintLine(value: char32)
 PrintLine(value: char)
 ```
 
-### Strings
+#### Strings
 
 ```rux
 PrintLine(string: *const char8, length: uint)
@@ -153,7 +169,7 @@ PrintLine(string: char16[])
 PrintLine(string: String)
 ```
 
-### Formatted Output
+#### Formatted Output
 
 ```rux
 PrintLine(
@@ -164,7 +180,7 @@ PrintLine(
 
 Formats the arguments using `Format()`, writes the result, and appends a newline.
 
-### Example
+#### Example
 
 ```rux
 PrintLine(
@@ -182,92 +198,7 @@ Alex scored 42 points
 
 ---
 
-# Examples
-
-## Printing Strings
-
-```rux
-Print("Hello");
-Print(" ");
-Print("World");
-```
-
-Output:
-
-```text
-Hello World
-```
-
----
-
-## Printing With Newlines
-
-```rux
-PrintLine("Hello");
-PrintLine("World");
-```
-
-Output:
-
-```text
-Hello
-World
-```
-
----
-
-## Printing Numbers
-
-```rux
-PrintLine(42);
-PrintLine(3.14);
-```
-
-Output:
-
-```text
-42
-3.14
-```
-
----
-
-## Printing Booleans
-
-```rux
-PrintLine(true);
-PrintLine(false);
-```
-
-Output:
-
-```text
-true
-false
-```
-
----
-
-## Formatted Output
-
-```rux
-let name = String::From("Alex");
-
-PrintLine(
-    "Hello, {}!",
-    name
-);
-```
-
-Output:
-
-```text
-Hello, Alex!
-```
-
----
-
-# Notes
+## Notes
 
 - Primitive values are converted to strings automatically.
 - Formatted output uses `Format()`.
@@ -277,19 +208,20 @@ Hello, Alex!
 
 ---
 
-# Platform Notes
+## Platform Notes
 
-## Linux
+### Linux / BSD / Illumos
 
-- UTF-8 text is written directly to standard output.
-- Output is performed using operating system write calls.
+- UTF-8 text is written directly to standard output via the `write` syscall.
+- Linux: `SYS_WRITE = 1` (negative errno).
+- BSD / Illumos: `SYS_WRITE = 4` (positive errno).
 
-## Windows
+### Windows
 
 - UTF-8 text is converted to UTF-16 before being written to the console.
 - UTF-16 output is written using the Windows console API.
 
-### Output Length Limit
+#### Output Length Limit
 
 Strings longer than 4096 characters currently cause a fatal error when printed. Attempting to print a longer UTF-8 string will terminate the program with:
 
@@ -307,11 +239,3 @@ PrintLine(...)
 when the underlying string exceeds 4096 characters.
 
 ---
-
-# Current Limitations
-
-- BSD support is not yet implemented.
-- Illumos support is not yet implemented.
-- macOS support is not yet implemented.
-
-These platforms currently contain placeholder implementations.

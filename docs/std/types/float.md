@@ -32,11 +32,11 @@ Both types implement the `Display` interface and can be converted to strings usi
 
 ---
 
-# String Conversion
+## String Conversion
 
-## ToString
+### ToString
 
-### float32
+#### float32
 
 ```rux
 ToString(value: float32) -> String
@@ -48,7 +48,7 @@ Internally, the value is converted to `float64` and formatted using the `float64
 
 ---
 
-### float64
+#### float64
 
 ```rux
 ToString(value: float64) -> String
@@ -64,7 +64,7 @@ Special floating-point values are handled automatically:
 | Positive Infinity | `"Inf"`  |
 | Negative Infinity | `"-Inf"` |
 
-### Example
+#### Example
 
 ```rux
 let text = ToString(3.141592);
@@ -78,7 +78,7 @@ Result:
 
 ---
 
-# Display Implementation
+## Display Implementation
 
 Both floating-point types implement the `Display` interface.
 
@@ -89,7 +89,7 @@ extend float64 : Display
 
 This allows floating-point values to be used with formatting and output functions.
 
-### Example
+#### Example
 
 ```rux
 PrintLine(3.14);
@@ -103,9 +103,9 @@ Output:
 
 ---
 
-# Floating-Point Utilities
+## Floating-Point Utilities
 
-## IsNan
+### IsNan
 
 ```rux
 IsNan(value: float64) -> bool
@@ -113,7 +113,7 @@ IsNan(value: float64) -> bool
 
 Returns `true` if the value is NaN (Not a Number).
 
-### Example
+#### Example
 
 ```rux
 if IsNan(value) {
@@ -123,7 +123,7 @@ if IsNan(value) {
 
 ---
 
-## IsInfinite
+### IsInfinite
 
 ```rux
 IsInfinite(value: float64) -> bool
@@ -131,7 +131,7 @@ IsInfinite(value: float64) -> bool
 
 Returns `true` if the value is positive or negative infinity.
 
-### Example
+#### Example
 
 ```rux
 if IsInfinite(value) {
@@ -141,9 +141,9 @@ if IsInfinite(value) {
 
 ---
 
-# Formatting Behavior
+## Formatting Behavior
 
-## Fixed-Point Notation
+### Fixed-Point Notation
 
 Most values are formatted using fixed-point notation.
 
@@ -163,7 +163,7 @@ The current implementation outputs six digits after the decimal point.
 
 ---
 
-## Scientific Notation
+### Scientific Notation
 
 Very large and very small values are automatically formatted using scientific notation.
 
@@ -193,69 +193,7 @@ Possible result:
 
 ---
 
-# Examples
-
-## float32
-
-```rux
-let value: float32 = 3.14f32;
-
-PrintLine(value);
-```
-
-Output:
-
-```text
-3.140000
-```
-
----
-
-## float64
-
-```rux
-let value: float64 = 123.456;
-
-PrintLine(value);
-```
-
-Output:
-
-```text
-123.456000
-```
-
----
-
-## NaN
-
-```rux
-PrintLine(ToString(0.0 / 0.0));
-```
-
-Output:
-
-```text
-NaN
-```
-
----
-
-## Infinity
-
-```rux
-PrintLine(ToString(1.0 / 0.0));
-```
-
-Output:
-
-```text
-Inf
-```
-
----
-
-# Notes
+## Notes
 
 * `float32` uses the `float64` formatter internally.
 * A new string is allocated for every conversion.
@@ -264,12 +202,3 @@ Inf
 * Special values (`NaN`, `Inf`, `-Inf`) are supported.
 
 ---
-
-# Current Limitations
-
-* Formatting precision is currently fixed.
-* Rounding control is not currently available.
-* Custom formatting options are not currently supported.
-* Scientific notation thresholds are implementation-defined.
-
-Future versions may provide configurable floating-point formatting.

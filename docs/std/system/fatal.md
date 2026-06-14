@@ -2,6 +2,8 @@
 
 Terminates the program immediately with a fatal error message.
 
+**Module:** `Std`
+
 ## Summary
 
 ```rux
@@ -57,6 +59,18 @@ Fatal error: Configuration file is missing
 --> Main.rux:4:10
     in function Main
 ```
+
+## Platform Notes
+
+`Fatal` is available on all supported platforms.
+
+| Platform | Supported |
+| -------- | --------- |
+| Linux    | yes       |
+| Windows  | yes       |
+| macOS    | Planned   |
+| BSD      | yes       |
+| Illumos  | yes       |
 
 ## Exit Code
 

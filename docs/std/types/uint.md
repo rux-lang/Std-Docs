@@ -33,11 +33,11 @@ All unsigned integer types implement the `Display` interface.
 
 ---
 
-# String Conversion
+## String Conversion
 
-## ToString
+### ToString
 
-### uint8
+#### uint8
 
 ```rux
 ToString(value: uint8) -> String
@@ -49,7 +49,7 @@ Internally, the value is converted to `uint64` and formatted using the `uint64` 
 
 ---
 
-### uint16
+#### uint16
 
 ```rux
 ToString(value: uint16) -> String
@@ -61,7 +61,7 @@ Internally, the value is converted to `uint64` and formatted using the `uint64` 
 
 ---
 
-### uint32
+#### uint32
 
 ```rux
 ToString(value: uint32) -> String
@@ -73,7 +73,7 @@ Internally, the value is converted to `uint64` and formatted using the `uint64` 
 
 ---
 
-### uint64
+#### uint64
 
 ```rux
 ToString(value: uint64) -> String
@@ -81,7 +81,7 @@ ToString(value: uint64) -> String
 
 Converts a `uint64` value into its decimal string representation.
 
-### Examples
+#### Examples
 
 ```rux
 ToString(42u64);
@@ -105,7 +105,7 @@ Result:
 
 ---
 
-# Display Implementation
+## Display Implementation
 
 All unsigned integer types implement the `Display` interface.
 
@@ -118,7 +118,7 @@ extend uint64 : Display
 
 This allows unsigned integer values to be used with formatting and output functions.
 
-### Example
+#### Example
 
 ```rux
 PrintLine(255u8);
@@ -132,11 +132,11 @@ Output:
 
 ---
 
-# Formatting
+## Formatting
 
 Unsigned integer values can be used with `Format()`.
 
-### Example
+#### Example
 
 ```rux
 let score: uint32 = 9001;
@@ -155,74 +155,7 @@ Score: 9001
 
 ---
 
-# Examples
-
-## uint8
-
-```rux
-let value: uint8 = 255;
-
-PrintLine(value);
-```
-
-Output:
-
-```text
-255
-```
-
----
-
-## uint16
-
-```rux
-let value: uint16 = 65535;
-
-PrintLine(value);
-```
-
-Output:
-
-```text
-65535
-```
-
----
-
-## uint32
-
-```rux
-let value: uint32 = 4294967295;
-
-PrintLine(value);
-```
-
-Output:
-
-```text
-4294967295
-```
-
----
-
-## uint64
-
-```rux
-let value: uint64 =
-    18446744073709551615;
-
-PrintLine(value);
-```
-
-Output:
-
-```text
-18446744073709551615
-```
-
----
-
-# Notes
+## Notes
 
 * All conversions produce decimal output.
 * Unsigned integers cannot represent negative values.
@@ -231,11 +164,3 @@ Output:
 * A new string is allocated for each conversion.
 
 ---
-
-# Current Limitations
-
-* Only decimal formatting is currently supported.
-* Hexadecimal, binary, and octal formatting are not currently available.
-* Width, padding, alignment, and sign formatting options are not currently supported.
-
-Future versions may add additional integer formatting capabilities.

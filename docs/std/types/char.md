@@ -32,11 +32,11 @@ String conversion functions encode characters as UTF-8 and return the result as 
 
 ---
 
-# String Conversion
+## String Conversion
 
-## ToString
+### ToString
 
-### char8
+#### char8
 
 ```rux
 ToString(value: char8) -> String
@@ -44,7 +44,7 @@ ToString(value: char8) -> String
 
 Converts a single-byte character into a `String`.
 
-### char16
+#### char16
 
 ```rux
 ToString(value: char16) -> String
@@ -52,7 +52,7 @@ ToString(value: char16) -> String
 
 Converts a UTF-16 code point into a UTF-8 encoded `String`.
 
-### char32
+#### char32
 
 ```rux
 ToString(value: char32) -> String
@@ -60,13 +60,13 @@ ToString(value: char32) -> String
 
 Converts a UTF-32 code point into a UTF-8 encoded `String`.
 
-### Return Value
+#### Return Value
 
 Returns a UTF-8 encoded `String` containing the specified character.
 
 ---
 
-# UTF-8 Encoding
+## UTF-8 Encoding
 
 The resulting string length depends on the Unicode code point.
 
@@ -79,7 +79,7 @@ The resulting string length depends on the Unicode code point.
 
 ---
 
-# Display Implementation
+## Display Implementation
 
 All character types implement the `Display` interface.
 
@@ -93,61 +93,11 @@ This allows characters to be used with formatting and output APIs.
 
 ---
 
-# Examples
-
-## char8
-
-```rux
-let c: char8 = 'A';
-
-PrintLine(c);
-```
-
-Output:
-
-```text
-A
-```
-
----
-
-## char16
-
-```rux
-let c: char16 = 'Ω';
-
-PrintLine(c);
-```
-
-Output:
-
-```text
-Ω
-```
-
----
-
-## char32
-
-```rux
-let c: char32 = '😀';
-
-PrintLine(c);
-```
-
-Output:
-
-```text
-😀
-```
-
----
-
-# Formatting
+## Formatting
 
 Character values can be used with `Format()`.
 
-### Example
+#### Example
 
 ```rux
 let text = Format(
@@ -164,7 +114,7 @@ Character: A
 
 ---
 
-# Notes
+## Notes
 
 * All conversions return UTF-8 encoded strings.
 * `char8` always produces a one-byte string.
@@ -173,13 +123,3 @@ Character: A
 * A new string is allocated for each conversion.
 
 ---
-
-# Current Limitations
-
-## char16
-
-The current implementation encodes the character value directly as a Unicode code point.
-
-UTF-16 surrogate pairs are not currently supported.
-
-Characters outside the Basic Multilingual Plane (BMP) therefore require `char32`.

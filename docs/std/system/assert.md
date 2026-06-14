@@ -2,6 +2,8 @@
 
 Terminates the program if a condition evaluates to `false`.
 
+**Module:** `Std`
+
 ## Summary
 
 ```rux
@@ -84,9 +86,20 @@ Assertion failed: value must be positive
     in function Main
 ```
 
+## Platform Notes
+
+`Assert` is available on all supported platforms.
+
+| Platform | Supported |
+| -------- | --------- |
+| Linux    | yes       |
+| Windows  | yes       |
+| macOS    | Planned   |
+| BSD      | yes       |
+| Illumos  | yes       |
+
 ## Exit Code
 
 | Code | Meaning          |
 | ---- | ---------------- |
 | `2`  | Assertion failed |
-|      |                  |

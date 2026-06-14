@@ -32,9 +32,9 @@ The implementation is platform-specific where required.
 
 ---
 
-# Structures
+## Structures
 
-## SystemTime
+### SystemTime
 
 Represents a calendar date and time.
 
@@ -64,9 +64,9 @@ struct SystemTime {
 
 ---
 
-# Sleeping
+## Sleeping
 
-## SleepMs
+### SleepMs
 
 ```rux
 SleepMs(ms: uint32)
@@ -74,7 +74,7 @@ SleepMs(ms: uint32)
 
 Suspends execution for approximately the specified number of milliseconds.
 
-### Example
+#### Example
 
 ```rux
 SleepMs(500);
@@ -84,7 +84,7 @@ Pauses execution for roughly half a second.
 
 ---
 
-## SleepSeconds
+### SleepSeconds
 
 ```rux
 SleepSeconds(seconds: uint32)
@@ -92,7 +92,7 @@ SleepSeconds(seconds: uint32)
 
 Suspends execution for approximately the specified number of seconds.
 
-### Example
+#### Example
 
 ```rux
 SleepSeconds(2);
@@ -100,7 +100,7 @@ SleepSeconds(2);
 
 ---
 
-## SleepMinutes
+### SleepMinutes
 
 ```rux
 SleepMinutes(minutes: uint32)
@@ -108,7 +108,7 @@ SleepMinutes(minutes: uint32)
 
 Suspends execution for approximately the specified number of minutes.
 
-### Example
+#### Example
 
 ```rux
 SleepMinutes(1);
@@ -116,9 +116,9 @@ SleepMinutes(1);
 
 ---
 
-# Timing
+## Timing
 
-## TickMs
+### TickMs
 
 ```rux
 TickMs() -> uint64
@@ -128,7 +128,7 @@ Returns a monotonic millisecond tick count.
 
 This value is intended for measuring elapsed time and should not be interpreted as a calendar date or wall-clock timestamp.
 
-### Example
+#### Example
 
 ```rux
 let start = TickMs();
@@ -138,7 +138,7 @@ SleepMs(250);
 let elapsed = TickMs() - start;
 ```
 
-### Notes
+#### Notes
 
 - Monotonic clocks are not affected by system clock adjustments.
 - Useful for benchmarking and measuring durations.
@@ -146,9 +146,9 @@ let elapsed = TickMs() - start;
 
 ---
 
-# Date and Time
+## Date and Time
 
-## LocalTime
+### LocalTime
 
 ```rux
 LocalTime() -> SystemTime
@@ -156,20 +156,20 @@ LocalTime() -> SystemTime
 
 Returns the current local system time.
 
-### Example
+#### Example
 
 ```rux
 let time = LocalTime();
 ```
 
-### Notes
+#### Notes
 
 - On Windows, local time is retrieved from the operating system.
 - On Linux, the current implementation returns the same value as `UtcTime()`.
 
 ---
 
-## UtcTime
+### UtcTime
 
 ```rux
 UtcTime() -> SystemTime
@@ -177,7 +177,7 @@ UtcTime() -> SystemTime
 
 Returns the current Coordinated Universal Time (UTC).
 
-### Example
+#### Example
 
 ```rux
 let time = UtcTime();
@@ -185,7 +185,7 @@ let time = UtcTime();
 
 ---
 
-# Example
+## Example
 
 ```rux
 import Std::Time;
@@ -215,25 +215,39 @@ func Main() {
 
 ---
 
-# Platform Notes
+## Platform Notes
 
-## Windows
+### Windows
 
 - `SleepMs()` uses the Windows sleep API.
 - `TickMs()` uses a monotonic tick counter.
 - `LocalTime()` returns the system's local time.
 - `UtcTime()` returns UTC from the operating system.
 
-## Linux
+### Linux
 
-- `SleepMs()` uses `nanosleep`.
-- `TickMs()` uses `clock_gettime(CLOCK_MONOTONIC)`.
+- `SleepMs()` uses `nanosleep` (syscall 35).
+- `TickMs()` uses `clock_gettime(CLOCK_MONOTONIC)` (syscall 228).
 - `UtcTime()` is computed from `CLOCK_REALTIME`.
+- `LocalTime()` currently returns UTC.
+
+### BSD
+
+- `SleepMs()` uses `nanosleep` via a linker-provided thunk; the remaining time is not tracked (`rem` is `null`).
+- `TickMs()` uses `clock_gettime(CLOCK_MONOTONIC)` via a linker thunk. `CLOCK_MONOTONIC` is 4 (FreeBSD/NetBSD/DragonFly) or 3 (OpenBSD).
+- `UtcTime()` is computed from `CLOCK_REALTIME`.
+- `LocalTime()` currently returns UTC.
+
+### Illumos
+
+- `SleepMs()` uses `nanosleep` via direct syscall (`SYS_NANOSLEEP = 199`). The remaining time is tracked.
+- `TickMs()` uses `clock_gettime(CLOCK_MONOTONIC)` via direct syscall (`SYS_CLOCK_GETTIME = 191`). `CLOCK_MONOTONIC` is 4.
+- `UtcTime()` is computed from `CLOCK_REALTIME` (syscall).
 - `LocalTime()` currently returns UTC.
 
 ---
 
-# Day Of Week
+## Day Of Week
 
 The meaning of `dayOfWeek` is platform-dependent.
 
